@@ -13,7 +13,7 @@ Send /start to initiate the conversation.
 Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
 """
-
+import spacy
 import logging
 from typing import Any, Dict, Tuple
 
@@ -27,6 +27,9 @@ from telegram.ext import (
     MessageHandler,
     filters,
 )
+
+# Load Spacy model
+nlp = spacy.load("en_core_web_sm")
 
 # Enable logging
 logging.basicConfig(
